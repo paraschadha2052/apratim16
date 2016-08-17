@@ -18,7 +18,7 @@ import java.util.Date;
 public class Database extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "oasis.db";
+    private static final String DATABASE_NAME = "apratim.db";
     public static final String TABLE_EVENTS = "events";
     public static final String TABLE_RESULTS = "results";
     public static final String TABLE_SPONSORS = "sponsors";

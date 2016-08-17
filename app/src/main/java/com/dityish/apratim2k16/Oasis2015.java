@@ -15,9 +15,6 @@ import com.parse.ParseUser;
 
 import java.util.regex.Pattern;
 
-/**
- * Created by Nitish on 10/22/2015.
- */
 public class Oasis2015 extends Application {
     SharedPreferences prefs = null;
     String emailID=" ";
@@ -29,7 +26,12 @@ public class Oasis2015 extends Application {
         Parse.enableLocalDatastore(this);
 
         // Add your initialization code here
-        Parse.initialize(this, "2zBSWSycuQVaAZvvVO1vQmm1zN1zBv6pQfCGMYUP", "Yfl78nSj6bSbgcMBJw3EZUNahTJsTvkBWovSleFU");
+        Parse.initialize(new Parse.Configuration.Builder(this)
+                .applicationId("eq1Y7APbTmkhCep2vS09KxASTc7S0Gsb1XooAhSn")
+                .clientKey("dX2hFby8srxOWVP2EuABHDjfK9IErPDytomZg2Q5")
+                .server("https://parseapi.back4app.com/") // The trailing slash is important.
+                .build()
+        );
         ParseInstallation.getCurrentInstallation().saveInBackground();
         ParseUser.enableAutomaticUser();
         ParseACL defaultACL = new ParseACL();

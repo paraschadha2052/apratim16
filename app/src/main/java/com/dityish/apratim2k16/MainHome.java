@@ -91,25 +91,12 @@ public class MainHome extends AppCompatActivity {
                     case R.id.nav_third_fragment:
                         fragment = new ProfShow();
                         break;
-                    case R.id.nav_fourth_fragment:
-                        fragment= new Results();
-                        break;
                     case R.id.nav_fifth_fragment:
                         fragment = new Home();
-                        break;
-                    case R.id.nav_sixth_fragment:
-                       fragment = new KnowID();
                         break;
                     case R.id.nav_seventh_fragment:
                         fragment = new Map();
                         toolbar.setBackgroundColor(getResources().getColor(R.color.dark_theme));
-                        break;
-                    case R.id.nav_eight_fragment:
-                        fragment = new Blog();
-                        toolbar.setBackgroundColor(getResources().getColor(R.color.dark_theme));
-                        break;
-                    case R.id.nav_ninth_fragment:
-                        fragment = new PicDay();
                         break;
                     case R.id.nav_tenth_fragment:
                         fragment = new ContactUs();
