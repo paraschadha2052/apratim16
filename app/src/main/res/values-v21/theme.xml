@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/theme</item>
+        <item name="android:colorPrimaryDark">@color/dark_theme</item>
+    </style>
+
+    <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/toolbar</item>
+        <item name="android:colorPrimaryDark">@color/dark_theme</item>
+    </style>
+    <style name="MyOwnAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/toolbar</item>
+        <item name="android:colorPrimaryDark">@color/dark_theme</item>
+    </style>
+
+
+</resources>

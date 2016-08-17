@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <ScrollView android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="@dimen/abc_action_bar_default_height_material">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp">
+
+
+            <com.dityish.apratim2k16.CustomFont2
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Skinned knees. Playing in the local park from noon to dusk. Friendships that began with fights and morphed into partnerships-of-crime. Falling asleep in the safety of mother&apos;s lap. And heartbreak? Your friend getting the Pokemon collector deck before you did.\n\nIf there is any place untainted and unscarred by the sometimes shape edges of adolescence, it&apos;s childhood: akin to a warm afternoon when the world was exactly as it was supposed to be and all the happiness ever was right within one&apos;s reach. No matter what decade you are traveling in, the taste of childhood lingers on one&apos;s tongue like Heaven&apos;s unforgettable elixir.\n\nTo capture again this very essence of childhood that still tugs at out heartstrings, Apratim &apos;16 is back this year with the theme &apos;Relive your Childhood&apos;. Come join us as we walk down those lanes again and splash around in those (very muddy?) memories.\n\nIts time to reunite with our inner child again!"
+                android:textSize="19dp"
+                android:id="@+id/text7"
+                android:textColor="@color/white"
+                />
+        </RelativeLayout>
+
+    </ScrollView>
+</RelativeLayout>

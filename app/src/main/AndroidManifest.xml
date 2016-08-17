@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+package="com.dityish.apratim2k16">
+
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+<uses-permission android:name="android.permission.VIBRATE" />
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+<permission
+    android:name="com.dityish.apratim2k16.permission.C2D_MESSAGE"
+    android:protectionLevel="signature" />
+
+<uses-permission android:name="com.dityish.apratim2k16.permission.C2D_MESSAGE" />
+
+<application
+    android:name=".Oasis2015"
+    android:allowBackup="true"
+    android:icon="@drawable/appicon"
+    android:label="Apratim 2016"
+    android:largeHeap="true"
+    android:theme="@style/CustomActionBarTheme">
+    <meta-data
+        android:name="com.parse.APPLICATION_ID"
+        android:value="@string/parse_app_id" />
+    <meta-data
+        android:name="com.parse.CLIENT_KEY"
+        android:value="@string/parse_client_key" />
+
+    <activity
+        android:name=".splash"
+        android:label="Apratim 2016"
+        android:screenOrientation="portrait"
+        android:noHistory="true"
+        android:theme="@style/AppTheme">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity
+        android:name=".ProfDetails"
+        android:label="@string/title_activity_prof_details"
+        android:parentActivityName=".MainHome"
+        android:screenOrientation="portrait"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.dityish.apratim2k16.MainHome" />
+    </activity>
+    <activity
+        android:name=".MainHome"
+        android:label="Apratim 2016"
+        android:screenOrientation="portrait"
+        android:theme="@style/AppTheme" />
+
+    <service android:name="com.parse.PushService" />
+
+    <receiver android:name="com.parse.ParseBroadcastReceiver">
+        <intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED" />
+            <action android:name="android.intent.action.USER_PRESENT" />
+        </intent-filter>
+    </receiver>
+    <receiver
+        android:name="com.parse.ParsePushBroadcastReceiver"
+        android:exported="false">
+        <intent-filter>
+            <action android:name="com.parse.push.intent.RECEIVE" />
+            <action android:name="com.parse.push.intent.DELETE" />
+            <action android:name="com.parse.push.intent.OPEN" />
+        </intent-filter>
+    </receiver>
+    <receiver
+        android:name="com.parse.GcmBroadcastReceiver"
+        android:permission="com.google.android.c2dm.permission.SEND">
+        <intent-filter>
+            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+            <!-- IMPORTANT: Change "com.parse.starter" to match your app's package name. -->
+            <category android:name="com.dityish.apratim2k16" />
+        </intent-filter>
+    </receiver>
+
+    <activity
+        android:name=".ResultDetails"
+        android:label="Results "
+        android:screenOrientation="portrait"
+        android:theme="@style/AppTheme"
+        android:parentActivityName=".MainHome">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.dityish.apratim2k16.MainHome" />
+    </activity>
+    <activity
+        android:name=".EventDetails"
+        android:label="@string/title_activity_event_details"
+        android:theme="@style/AppTheme"
+        android:screenOrientation="portrait"
+        android:parentActivityName=".MainHome">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.dityish.apratim2k16.MainHome" />
+    </activity>
+</application>
+
+</manifest>
+

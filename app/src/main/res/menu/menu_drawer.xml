@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_first_fragment"
+            android:icon="@drawable/about"
+            android:title="About" />
+        <item
+            android:id="@+id/nav_second_fragment"
+            android:icon="@drawable/schedule"
+            android:title="Schedule" />
+        <item
+            android:id="@+id/nav_third_fragment"
+            android:icon="@drawable/prof_show"
+            android:title="Prof. Shows" />
+        <item
+            android:id="@+id/nav_fourth_fragment"
+            android:icon="@drawable/results"
+            android:title="Updates" />
+        <item
+            android:id="@+id/nav_fifth_fragment"
+            android:icon="@drawable/events_now"
+            android:title="Events Now" />
+
+        <item android:id="@+id/nav_sixth_fragment"
+            android:icon="@drawable/know_your_id"
+            android:title="Know Your ID">
+        </item>
+        <item
+            android:id="@+id/nav_seventh_fragment"
+            android:icon="@drawable/map"
+            android:title="Map" />
+
+        <item
+            android:id="@+id/nav_eight_fragment"
+            android:icon="@drawable/blog"
+            android:title="Blog" />
+        <item
+            android:id="@+id/nav_ninth_fragment"
+            android:icon="@drawable/pic_day"
+            android:title="Pics of the Day" />
+
+        <item
+            android:id="@+id/nav_twelfth_fragment"
+            android:icon="@drawable/sponsors"
+            android:title="Sponsors" />
+        <item
+            android:id="@+id/nav_tenth_fragment"
+            android:icon="@drawable/contact_us"
+            android:title="Contact Us" />
+        <item
+            android:id="@+id/nav_eleventh_fragment"
+            android:icon="@drawable/developers"
+            android:title="Developers - DVM BITS Pilani" />
+
+    </group>
+
+</menu>
