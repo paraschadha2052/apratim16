@@ -9,6 +9,7 @@ import android.graphics.Path;
 import android.graphics.Rect;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -100,6 +101,13 @@ public class ProfShow extends android.support.v4.app.Fragment implements SHARED_
                 }
             }
         }.execute(null, null, null);
+
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        int height = displaymetrics.heightPixels;
+        int width = displaymetrics.widthPixels;
+        jerryAnimation anim = new jerryAnimation(view,height,width);
+        anim.con_anime().start();
 
         return view;
     }
