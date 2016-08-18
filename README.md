@@ -3,7 +3,7 @@
 # To Do 
 
 ## Schedule 
-## Font settings 
+## Font settings, color scheme, background setting and design stuff
 ## Register
 ## Gallery
 ## Animations
