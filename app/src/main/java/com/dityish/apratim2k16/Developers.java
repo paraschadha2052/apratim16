@@ -8,6 +8,7 @@ import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,13 @@ public class Developers extends android.support.v4.app.Fragment {
         }
         ListAdapter custom = new DeveloperAdapter(getActivity(), DEVELOPER_NAMES, drw,DEVELOPER_CONTRI);
         developerList.setAdapter(custom);
+
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        int height = displaymetrics.heightPixels;
+        int width = displaymetrics.widthPixels;
+        jerryAnimation anim = new jerryAnimation(view,height,width);
+        anim.con_anime().start();
 
         return view;
     }

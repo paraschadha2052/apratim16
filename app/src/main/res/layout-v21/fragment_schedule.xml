@@ -39,6 +39,75 @@
 
             </include>
 
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/jerryimageView"
+                android:src="@drawable/jerryone"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/jerryimageView2"
+                android:src="@drawable/jerrytwo"
+                android:alpha="0"
+                android:layout_alignParentBottom="true"
+                android:layout_alignLeft="@+id/jerryimageView"
+                android:layout_alignStart="@+id/jerryimageView" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/jerryimageView3"
+                android:src="@drawable/jerrythree"
+                android:alpha="0"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/jerryimageView4"
+                android:src="@drawable/jerryfour"
+                android:alpha="0"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/jerryimageView5"
+                android:src="@drawable/jerryfive"
+                android:alpha="0"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/jerryimageView6"
+                android:src="@drawable/jerrysix"
+                android:alpha="0"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/jerryimageView7"
+                android:src="@drawable/jerryseven"
+                android:alpha="0"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
         </RelativeLayout>
 
     </LinearLayout>
