@@ -1,6 +1,7 @@
 package com.dityish.apratim2k16;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -29,6 +30,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.ExecutionException;
 
 public class Home extends android.support.v4.app.Fragment implements SHARED_CONSTANTS {
 
@@ -147,91 +149,94 @@ public class Home extends android.support.v4.app.Fragment implements SHARED_CONS
 
     public void backgroundSwitcher()
     {
+        try{
 
-        handler= new Handler();
-        anim1= AnimationUtils.loadAnimation(getActivity(), R.anim.home_fade_out);
-        anim2= AnimationUtils.loadAnimation(getActivity(), R.anim.home_fade);
+            handler= new Handler();
+            anim1= AnimationUtils.loadAnimation(getActivity(), R.anim.home_fade_out);
+            anim2= AnimationUtils.loadAnimation(getActivity(), R.anim.home_fade);
+            final Window window = getActivity().getWindow();
+            final Activity act1 = getActivity();
+            changeImage = new Runnable() {
 
-        changeImage = new Runnable() {
+                @Override
+                public void run() {
+                    index=c%5;
 
-            @Override
-            public void run() {
-                index=c%5;
+                    anim2.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationStart(Animation animation) {
 
-                anim2.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
+                            homeLayout2.setVisibility(View.VISIBLE);
+                        }
 
-                        homeLayout2.setVisibility(View.VISIBLE);
-                    }
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
 
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
+                            c++;
+                            handler.postDelayed(changeImage, 4000);
+                        }
 
-                        c++;
-                        handler.postDelayed(changeImage, 4000);
-                    }
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
 
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-                });
+                        }
+                    });
 
 
-                anim1.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
+                    anim1.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationStart(Animation animation) {
 
-                    }
+                        }
 
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
 
-                        c++;
-                        index = c % 5;
-                        homeLayout2.setVisibility(View.INVISIBLE);
-                        homeLayout2.setBackgroundResource(HOME_BACK_PICS[index]);
+                            c++;
+                            index = c % 5;
+                            homeLayout2.setVisibility(View.INVISIBLE);
+                            homeLayout2.setBackgroundResource(HOME_BACK_PICS[index]);
 
-                        new Handler().postDelayed(new Runnable() {
+                            new Handler().postDelayed(new Runnable() {
 
-                            @Override
-                            public void run() {
-                                homeLayout2.startAnimation(anim2);
-                                Window window = getActivity().getWindow();
-                                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                                window.setStatusBarColor(ContextCompat.getColor(getActivity(), HOME_BACK_COLORS[index]));
-                            }
-                        }, 2500);
-                    }
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
+                                @Override
+                                public void run() {
+                                    homeLayout2.startAnimation(anim2);
+                                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                                    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                                    window.setStatusBarColor(ContextCompat.getColor(act1, HOME_BACK_COLORS[index]));
+                                }
+                            }, 2500);
+                        }
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
 
-                    }
-                });
+                        }
+                    });
 
-                homeLayout1.setBackgroundResource(HOME_BACK_PICS[index]);
-                homeLayout2.startAnimation(anim1);
-                Window window = getActivity().getWindow();
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                window.setStatusBarColor(ContextCompat.getColor(getActivity(), HOME_BACK_COLORS[index]));
+                    homeLayout1.setBackgroundResource(HOME_BACK_PICS[index]);
+                    homeLayout2.startAnimation(anim1);
+                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                    window.setStatusBarColor(ContextCompat.getColor(act1, HOME_BACK_COLORS[index]));
 
-            }
-        };
+                }
+            };
 
-        slide= new AsyncTask<Void, Void, String>() {
-            @Override
-            protected String doInBackground(Void... params) {
-                String msg="success";
+            slide= new AsyncTask<Void, Void, String>() {
+                @Override
+                protected String doInBackground(Void... params) {
+                    String msg="success";
 
-                handler.postDelayed(changeImage, 2500);
+                    handler.postDelayed(changeImage, 2500);
 
-                return msg;
-            }
+                    return msg;
+                }
 
-        }.execute(null, null, null);
+            }.execute(null, null, null);
+
+        }
+catch (Exception e){}
 
     }
 
