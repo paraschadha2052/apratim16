@@ -8,11 +8,14 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
@@ -60,7 +63,10 @@ public class Home_default extends android.support.v4.app.Fragment implements SHA
         noEvents = (TextView) view.findViewById(R.id.noEvents);
         homelist= (ListView) view.findViewById(R.id.homelist);
         db=new Database(getActivity());
-
+        Window window = getActivity().getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.home4));
         homelist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -185,6 +191,10 @@ public class Home_default extends android.support.v4.app.Fragment implements SHA
                             @Override
                             public void run() {
                                 homeLayout2.startAnimation(anim2);
+                                Window window = getActivity().getWindow();
+                                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                                window.setStatusBarColor(ContextCompat.getColor(getActivity(), HOME_BACK_COLORS[index]));
                             }
                         }, 2500);
                     }
@@ -196,7 +206,10 @@ public class Home_default extends android.support.v4.app.Fragment implements SHA
 
                 homeLayout1.setBackgroundResource(HOME_BACK_PICS[index]);
                 homeLayout2.startAnimation(anim1);
-
+                Window window = getActivity().getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                window.setStatusBarColor(ContextCompat.getColor(getActivity(), HOME_BACK_COLORS[index]));
             }
         };
 
