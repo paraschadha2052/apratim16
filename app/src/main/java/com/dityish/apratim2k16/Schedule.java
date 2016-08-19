@@ -4,6 +4,7 @@ package com.dityish.apratim2k16;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,14 @@ public class Schedule extends android.support.v4.app.Fragment {
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip)view.findViewById(R.id.tabs);
 
         tabs.setViewPager(Tab);
+
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        int height = displaymetrics.heightPixels;
+        int width = displaymetrics.widthPixels;
+        jerryAnimation anim = new jerryAnimation(view,height,width);
+        anim.con_anime().start();
+
         return view;
     }
 

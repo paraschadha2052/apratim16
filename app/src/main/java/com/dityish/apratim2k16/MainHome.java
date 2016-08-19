@@ -1,5 +1,6 @@
 package com.dityish.apratim2k16;
 
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -42,7 +43,7 @@ public class MainHome extends AppCompatActivity {
         setSupportActionBar(toolbar);
         android.support.v7.app.ActionBar ab = getSupportActionBar();
 
-        fragment = new Home();
+        fragment = new Home_default();
 
         android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
@@ -122,7 +123,9 @@ public class MainHome extends AppCompatActivity {
                     public void run() {
                         if (fragment != null) {
                             android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-                            fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+                            android.support.v4.app.FragmentTransaction ft = fragmentManager.beginTransaction();
+                            ft.setCustomAnimations(R.anim.slide_left_in, R.anim.slide_right_out, R.anim.slide_right_in, R.anim.slide_left_out);
+                            ft.replace(R.id.flContent, fragment).commit();
                         }
                     }
                 }, 350);
