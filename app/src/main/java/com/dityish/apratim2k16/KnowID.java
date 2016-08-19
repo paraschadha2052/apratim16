@@ -26,9 +26,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class KnowID extends android.support.v4.app.Fragment {
     ProgressBar loading;
     EditText email;

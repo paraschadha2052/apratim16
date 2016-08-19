@@ -16,10 +16,6 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class Blog extends android.support.v4.app.Fragment {
     ProgressBar loading;
     boolean check=true;

@@ -9,9 +9,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-/**
- * Created by Nitish on 9/3/2015.
- */
 public class ContactAdapter extends ArrayAdapter<String> implements SHARED_CONSTANTS {
     private LayoutInflater mInflater;
     private final Context context;

@@ -79,7 +79,7 @@ public class Home extends android.support.v4.app.Fragment implements SHARED_CONS
 
             @Override
             protected void onPostExecute(String s) {
-                Log.d("Neo", "Neo");
+                Log.d("CheckPoint", "Checkpoint at onpostexecute in home reached");
                 DateFormat df2 = new SimpleDateFormat("hh:mm a");
                 DateFormat df = new SimpleDateFormat("dd  MMM");
                  name=new String[eventsNowList.size()];

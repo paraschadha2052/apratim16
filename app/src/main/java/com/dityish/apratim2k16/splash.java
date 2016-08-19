@@ -46,7 +46,7 @@ public class splash extends AppCompatActivity {
 
             }
         });
-        //image.startAnimation(anim1);
+        image.startAnimation(anim1);
 
         final Intent i = new Intent(this, MainHome.class);
 

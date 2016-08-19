@@ -8,9 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-/**
- * Created by HP on 10/24/2015.
- */
 public class ImageAdapter extends PagerAdapter {
     Context context;
     ImageView imageView;

@@ -12,10 +12,6 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class PicDay extends android.support.v4.app.Fragment {
 
     ProgressBar loading;

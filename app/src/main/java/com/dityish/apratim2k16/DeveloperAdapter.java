@@ -12,11 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-/**
- * Created by HP on 10/25/2015.
- */
-
-
 public class DeveloperAdapter extends ArrayAdapter<String> {
 
 
@@ -65,7 +60,7 @@ public class DeveloperAdapter extends ArrayAdapter<String> {
         }
         catch (NullPointerException e)
         {
-            Log.d("Results", "Results is opened");
+            Log.d("Exception occured","Exception handler at getview in developer adapter");
         }
 
 

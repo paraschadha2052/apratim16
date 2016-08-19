@@ -16,12 +16,9 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class Developers extends android.support.v4.app.Fragment {
     Bitmap[] drw=new Bitmap[9];
-    String[] DEVELOPER_NAMES={"Nitish Kundala","Vishal Hans","Jai Agarwal","Ashit Shrivastava"};
+    String[] DEVELOPER_NAMES={"Paras Chadha","Rishabh Malhotra","Akanksha Kumari","Aditya Bansal"};
     int [] DEVELOPER_PICS={R.drawable.profile,R.drawable.profile,R.drawable.profile,R.drawable.profile};
     String[] DEVELOPER_CONTRI={"UI/UX & Back-end Developer","Graphic Designer","Back-end Developer","UX Developer"};
 

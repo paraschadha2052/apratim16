@@ -104,7 +104,7 @@ public class MainHome extends AppCompatActivity {
                         break;
                     case R.id.nav_eleventh_fragment:
                         fragment = new Developers();
-                        toolbar.setTitle("Developers - Dept. of Visual Media");
+                        toolbar.setTitle("Developers");
                         break;
                     case R.id.nav_twelfth_fragment:
                         toolbar.setBackgroundColor(getResources().getColor(R.color.dark_theme));

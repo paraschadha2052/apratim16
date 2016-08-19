@@ -79,7 +79,7 @@ public class Home_default extends android.support.v4.app.Fragment implements SHA
 
             @Override
             protected void onPostExecute(String s) {
-                Log.d("Neo", "Neo");
+                Log.d("Checkpoint", "Checkpoint at onpostexecute in home-default reached");
                 DateFormat df2 = new SimpleDateFormat("hh:mm a");
                 DateFormat df = new SimpleDateFormat("dd  MMM");
                  name=new String[eventsNowList.size()];

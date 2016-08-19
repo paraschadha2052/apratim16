@@ -18,42 +18,42 @@ import android.widget.Toast;
 public class ContactUs extends Fragment {
 
 
-    String[] CONTACT_HEAD={"Publications & Correspondence",
-            "Website and Online registration",
+    String[] CONTACT_HEAD={"lorem ipsum",
+            "lorem ipsum",
 
-            "Sponsorship & Marketing",
+            "lorem ipsum",
 
-            "Events & Scheduling",
+            "lorem ipsum",
 
-            "Publicity & Online Partnership" ,
+            "lorem ipsump" ,
 
 
-            "Hospitality & Accommodation" ,
+            "lorem ipsum" ,
 
-            "Department of Stage Controls"};
-    String[] CONTACT_NAME={"Maheep Tripathi",
-            "Siddhant Tuli",
-            "Ojas Malpani",
-            "Krishna Akhil",
-            "Krishna Chaitanya",
-            "Saketh Boddu",
-            "Akshansh Deva"};
+            "lorem ipsum"};
+    String[] CONTACT_NAME={"lorem ipsum",
+            "lorem ipsum",
+            "lorem ipsum",
+            "lorem ipsum",
+            "lorem ipsum",
+            "lorem ipsum",
+            "lorem ipsum"};
 
-    String[] CONTACT_NUMBER= {"+91-7240105156",
-            "+91-9810885196",
-            "+91-9772231910",
-            "+91-8441000746",
-            "+91-9660570469",
-            "+91-9772048822",
-            "+91-8741064850"};
+    String[] CONTACT_NUMBER= {"+91-420",
+            "+91-420",
+            "+91-420",
+            "+91-420",
+            "+91-420",
+            "+91-420",
+            "+91-420"};
 
-    String[] CONTACT_EMAIL={"pcr@bits-oasis.org",
-            "webmaster@bits-oasis.org",
-            "sponsorship@bits-oasis.org",
-            "controls@bits-oasis.org",
-            "adp@bits-oasis.org",
-            "recnacc@bits-oasis.org",
-            "stagecontrols@bits-oasis.org"};
+    String[] CONTACT_EMAIL={"lorem_ipsum@lorem_ipsum.com",
+            "lorem_ipsum@lorem_ipsum.com",
+            "lorem_ipsum@lorem_ipsum.com",
+            "lorem_ipsum@lorem_ipsum.com",
+            "lorem_ipsum@lorem_ipsum.com",
+            "lorem_ipsum@lorem_ipsum.com",
+            "lorem_ipsum@lorem_ipsum.com"};
 
 
 
@@ -96,7 +96,7 @@ public class ContactUs extends Fragment {
                         mail.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
                         mail.putExtra(Intent.EXTRA_EMAIL, new String[]{CONTACT_EMAIL[position]});
                         mail.putExtra(Intent.EXTRA_SUBJECT, "");
-                        mail.putExtra(Intent.EXTRA_TEXT, "\n\n\n\n\n\n\n\nSent from the official Oasis 2015 App");
+                        mail.putExtra(Intent.EXTRA_TEXT, "\n\n\n\n\n\n\n\nSent from the official Apratim 2016 App");
 
                         try {
                             startActivity(Intent.createChooser(mail, "Send mail...(Preferably GMail) ;)"));
