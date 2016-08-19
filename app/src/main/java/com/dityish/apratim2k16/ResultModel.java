@@ -2,9 +2,7 @@ package com.dityish.apratim2k16;
 
 import java.util.Date;
 
-/**
- * Created by jai on 20/10/15.
- */
+
 public class ResultModel implements Comparable<ResultModel> {
 
     private String id;

@@ -1,8 +1,6 @@
 package com.dityish.apratim2k16;
 
-/**
- * Created by Nitish on 9/2/2015.
- */
+
 public interface SHARED_CONSTANTS {
 
 

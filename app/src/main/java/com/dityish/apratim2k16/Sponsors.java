@@ -17,9 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class Sponsors extends android.support.v4.app.Fragment {
     ProgressBar loading;
     @Override

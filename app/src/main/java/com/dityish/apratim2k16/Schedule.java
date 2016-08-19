@@ -11,9 +11,7 @@ import android.view.ViewGroup;
 
 import com.astuetz.PagerSlidingTabStrip;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class Schedule extends android.support.v4.app.Fragment {
     ViewPager Tab;
     TabPagerAdapter TabAdapter;

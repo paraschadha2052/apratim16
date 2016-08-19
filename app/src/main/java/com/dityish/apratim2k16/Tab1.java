@@ -21,10 +21,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class Tab1 extends android.support.v4.app.Fragment {
     ArrayList<EventModel> eventList = new ArrayList<EventModel>();
     ListView tabList;

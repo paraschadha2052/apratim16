@@ -22,9 +22,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class Results extends android.support.v4.app.Fragment {
 
     ArrayList<ResultModel> resultList = new ArrayList<ResultModel>();
