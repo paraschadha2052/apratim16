@@ -1,8 +1,6 @@
 package com.dityish.apratim2k16;
 
-/**
- * Created by HP on 10/25/2015.
- */
+
 public class SponsorsModel implements Comparable<SponsorsModel> {
     private String id;
     private String heading;

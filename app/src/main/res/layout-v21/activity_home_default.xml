@@ -10,13 +10,13 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:id="@+id/homeLayout1"
-            android:background="@drawable/home3">
+            android:background="@drawable/home4">
         </ImageView>
         <ImageView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:id="@+id/homeLayout2"
-            android:background="@drawable/home1"
+            android:background="@drawable/home4"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">

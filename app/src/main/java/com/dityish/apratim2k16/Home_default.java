@@ -1,31 +1,37 @@
 package com.dityish.apratim2k16;
 
+/**
+ * Created by adnrs96 on 20/8/16.
+ */
+        import android.app.Activity;
+        import android.content.Context;
+        import android.content.Intent;
+        import android.net.ConnectivityManager;
+        import android.net.NetworkInfo;
+        import android.os.AsyncTask;
+        import android.os.Bundle;
+        import android.os.Handler;
+        import android.support.v4.content.ContextCompat;
+        import android.util.DisplayMetrics;
+        import android.util.Log;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.view.Window;
+        import android.view.WindowManager;
+        import android.view.animation.Animation;
+        import android.view.animation.AnimationUtils;
+        import android.widget.AdapterView;
+        import android.widget.ImageView;
+        import android.widget.ListAdapter;
+        import android.widget.ListView;
+        import android.widget.TextView;
+        import android.widget.Toast;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Handler;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
+        import java.text.DateFormat;
+        import java.text.SimpleDateFormat;
+        import java.util.ArrayList;
+        import java.util.Date;
 
 public class Home_default extends android.support.v4.app.Fragment implements SHARED_CONSTANTS {
 
@@ -60,7 +66,10 @@ public class Home_default extends android.support.v4.app.Fragment implements SHA
         noEvents = (TextView) view.findViewById(R.id.noEvents);
         homelist= (ListView) view.findViewById(R.id.homelist);
         db=new Database(getActivity());
-
+        Window window = getActivity().getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.home4));
         homelist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -79,12 +88,12 @@ public class Home_default extends android.support.v4.app.Fragment implements SHA
 
             @Override
             protected void onPostExecute(String s) {
-                Log.d("Neo", "Neo");
+                Log.d("Checkpoint", "Checkpoint at onpostexecute in home-default reached");
                 DateFormat df2 = new SimpleDateFormat("hh:mm a");
                 DateFormat df = new SimpleDateFormat("dd  MMM");
-                 name=new String[eventsNowList.size()];
+                name=new String[eventsNowList.size()];
                 location=new String[eventsNowList.size()];
-                 inTime=new String[eventsNowList.size()];
+                inTime=new String[eventsNowList.size()];
                 date=new String[eventsNowList.size()];
                 time=new String[eventsNowList.size()];
                 desc=new String[eventsNowList.size()];
@@ -127,7 +136,7 @@ public class Home_default extends android.support.v4.app.Fragment implements SHA
 
 
 
-                backgroundSwitcher();
+        backgroundSwitcher();
 
         return view;
     }
@@ -138,7 +147,8 @@ public class Home_default extends android.support.v4.app.Fragment implements SHA
         handler= new Handler();
         anim1= AnimationUtils.loadAnimation(getActivity(), R.anim.home_fade_out);
         anim2= AnimationUtils.loadAnimation(getActivity(), R.anim.home_fade);
-
+        final Window window = getActivity().getWindow();
+        final Activity act1 = getActivity();
         changeImage = new Runnable() {
 
             @Override
@@ -185,6 +195,9 @@ public class Home_default extends android.support.v4.app.Fragment implements SHA
                             @Override
                             public void run() {
                                 homeLayout2.startAnimation(anim2);
+                                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                                window.setStatusBarColor(ContextCompat.getColor(act1, HOME_BACK_COLORS[index]));
                             }
                         }, 2500);
                     }
@@ -196,7 +209,9 @@ public class Home_default extends android.support.v4.app.Fragment implements SHA
 
                 homeLayout1.setBackgroundResource(HOME_BACK_PICS[index]);
                 homeLayout2.startAnimation(anim1);
-
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                window.setStatusBarColor(ContextCompat.getColor(act1, HOME_BACK_COLORS[index]));
             }
         };
 

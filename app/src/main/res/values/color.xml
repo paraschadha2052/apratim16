@@ -38,4 +38,11 @@
     <color name="back">#CFD8DC</color>
     <color name="navy">#000080</color>
     <color name="black">#000000</color>
+
+    <color name="home1">#110622</color>
+    <color name="home2">#000F0C</color>
+    <color name="home3">#1B0301</color>
+    <color name="home4">#051015</color>
+    <color name="home5">#190A1F</color>
+
 </resources>

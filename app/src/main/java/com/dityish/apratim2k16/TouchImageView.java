@@ -1,8 +1,6 @@
 package com.dityish.apratim2k16;
 
-/**
- * Created by HP on 10/21/2015.
- */
+
 import android.content.Context;
 import android.graphics.Matrix;
 import android.graphics.PointF;

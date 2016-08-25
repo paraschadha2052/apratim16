@@ -11,10 +11,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 
-/**
- * Created by jai on 20/10/15.
- */
-
 public class Database extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
@@ -243,7 +239,7 @@ public class Database extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
 
         } else {
-            Log.d("Neo", "Jai Failed");
+            Log.d("adnrs96", "DB cursor movement failed in database geteventlist function");
         }
         cursor.close();
         Collections.sort(eventList);
@@ -373,7 +369,7 @@ public class Database extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
 
         } else {
-            Log.d("Neo", "Jai Failed");
+            Log.d("adnrs96", "DB cursor movement failed in database getprofshows function");
         }
         cursor.close();
         db.close();

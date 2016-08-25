@@ -9,9 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-/**
- * Created by Nitish on 10/19/2015.
- */
 public class ProfAdapter extends ArrayAdapter<String> {
 
     private LayoutInflater mInflater;

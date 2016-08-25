@@ -10,9 +10,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-/**
- * Created by Nitish on 10/17/2015.
- */
 public class CustomList extends ArrayAdapter<String> implements SHARED_CONSTANTS {
 
     private LayoutInflater mInflater;

@@ -8,50 +8,66 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
-/**
- * Created by jai on 21/10/15.
- */
+
 public class SyncDB {
 
     public static void refreshEvent(Context context) {
 
         final Database db = new Database(context);
 
+        String jsonEvents = "{Events:[\n" +
+                "  {\n" +
+                "    id:1,\n" +
+                "    eventName:\"Hackathon\",\n" +
+                "    location:\"CCET\",\n" +
+                "    start:\"2015-10-29T11:23\",\n" +
+                "    end:\"2015-10-29T12:23\",\n" +
+                "    desc:\"HEre goes the Description\",\n" +
+                "    isProfShow:FALSE\n" +
+                "  }\n" +
+                "  ]}";
+        try {
+            JSONObject jsonRootObject = new JSONObject(jsonEvents);
 
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Events");
-        query.setLimit(1000);
+            //Get the instance of JSONArray that contains JSONObjects
+            JSONArray jsonArray = jsonRootObject.optJSONArray("Events");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+            //Iterate the jsonArray and print the info of JSONObjects
 
-        query.findInBackground(new FindCallback<ParseObject>() {
+            int c=0;
+            for(int i=0; i < jsonArray.length(); i++){
 
-            @SuppressWarnings("unchecked")
-            @Override
-            public void done(List<ParseObject> eventList, ParseException e) {
-                int c=0;
-                if (e == null) {
-                    for (ParseObject parseEvent : eventList) {
-                        int check=0;
-
-                        boolean isAllDay=false;
-                       if (parseEvent.getBoolean("isProfShow"))
-                       {
-                           check=1;
-                       }
-                            EventModel event = new EventModel(parseEvent.getObjectId(), parseEvent.getString("eventName").trim(),
-                                    parseEvent.getString("location"), parseEvent.getDate("start"), parseEvent.getDate("end"), parseEvent.getString("desc"), isAllDay,check);
-//                        Log.d("Nitish", "neo");
-                        db.addEvent(event);
-
-                        c++;
-                        Log.d("Event name" +c,parseEvent.getString("eventName"));
-                    }
-
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                int check=0;
+                boolean isAllDay=false;
+                if (jsonObject.getBoolean("isProfShow"))
+                {
+                    check=1;
                 }
-                else
-                    Log.d("Jay", "Jay");
+
+                Date start=dateFormat.parse(jsonObject.getString("start")),end=dateFormat.parse(jsonObject.getString("end"));
+                Log.d("adnrs96" ,"Reached Check 1");
+                EventModel event = new EventModel(Integer.toString(jsonObject.getInt("id")), jsonObject.getString("eventName").trim(),
+                        jsonObject.getString("location"),start,
+                        end, jsonObject.getString("desc"), isAllDay,check);
+                db.addEvent(event);
+                c++;
+                Log.d("Event name" +c,jsonObject.getString("eventName"));
             }
-        });
+        } catch (Exception e) {
+            Log.d("adnrs96" ,"Reached Exception in events syncDB");
+        }
+
+
+
     }
 
     public static void refreshResult(Context context) {

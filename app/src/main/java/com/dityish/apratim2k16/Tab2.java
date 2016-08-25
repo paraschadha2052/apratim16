@@ -19,9 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- * Created by HP on 10/21/2015.
- */
+
 public class Tab2 extends android.support.v4.app.Fragment{
 
     ArrayList<EventModel> eventList = new ArrayList<EventModel>();
