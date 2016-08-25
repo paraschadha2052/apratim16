@@ -6,7 +6,7 @@
 ## Font settings, color scheme, background setting and design stuff
 ## Register
 ## Gallery
-## Animations , front animation and page shift animations 
+## Animations , front animation
 ## Sponsers
 ## Developers
 ## Contact Update
