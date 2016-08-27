@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
@@ -44,7 +45,7 @@ public class Home extends android.support.v4.app.Fragment implements SHARED_CONS
     Runnable changeImage;
     Animation anim2;
     Animation anim1;
-    ArrayList<EventModel> eventsNowList = new ArrayList<EventModel>();
+    ArrayList<EventModel> eventsNowList = new ArrayList<>();
     Database db;
     TextView noEvents;
     ListView homelist;
@@ -66,9 +67,15 @@ public class Home extends android.support.v4.app.Fragment implements SHARED_CONS
         homelist= (ListView) view.findViewById(R.id.homelist);
         db=new Database(getActivity());
         Window window = getActivity().getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.home4));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.home4));
+        }
         homelist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -204,7 +211,9 @@ public class Home extends android.support.v4.app.Fragment implements SHARED_CONS
                                     homeLayout2.startAnimation(anim2);
                                     window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
                                     window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                                    window.setStatusBarColor(ContextCompat.getColor(act1, HOME_BACK_COLORS[index]));
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                                        window.setStatusBarColor(ContextCompat.getColor(act1, HOME_BACK_COLORS[index]));
+                                    }
                                 }
                             }, 2500);
                         }
@@ -218,7 +227,9 @@ public class Home extends android.support.v4.app.Fragment implements SHARED_CONS
                     homeLayout2.startAnimation(anim1);
                     window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
                     window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                    window.setStatusBarColor(ContextCompat.getColor(act1, HOME_BACK_COLORS[index]));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        window.setStatusBarColor(ContextCompat.getColor(act1, HOME_BACK_COLORS[index]));
+                    }
 
                 }
             };
