@@ -10,4 +10,7 @@
 ## Sponsers
 ## Developers
 ## Contact Update
+------------------------------------------------------------------------------------
+## Some issues with SDK version 16
+## Look for memory leaks
 ## rest you may try to use and look for
