@@ -19,7 +19,7 @@ public class Map extends android.support.v4.app.Fragment {
 
         View view=inflater.inflate(R.layout.fragment_map, container, false);
 
-        String HTML="<html><body><img src=\"images/oasis_map.jpg\" /></body></html>";
+        String HTML="<html><body><img src=\"images/apratim_map.jpg\" /></body></html>";
 
         WebView web = (WebView) view.findViewById(R.id.web);
         web.getSettings().setAllowFileAccess(true);

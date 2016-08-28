@@ -22,8 +22,10 @@ public class Gallery extends android.support.v4.app.Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_gallery, container, false);
-        final String[] links = {"http://bits-oasis.org/gauss1.jpg",
-                "http://bits-oasis.org/gauss2.jpg", "http://bits-oasis.org/gauss3.jpg", "http://bits-oasis.org/gauss4.jpg"};
+        final String[] links = {"https://file-md-ms.herokuapp.com/apratim_gallery_pic1",
+                "https://file-md-ms.herokuapp.com/apratim_gallery_pic2",
+                "https://file-md-ms.herokuapp.com/apratim_gallery_pic3",
+                "https://file-md-ms.herokuapp.com/apratim_gallery_pic4"};
         ImageView pic1=(ImageView) view.findViewById(R.id.pic1);
         ImageView pic2=(ImageView) view.findViewById(R.id.pic2);
         ImageView pic3=(ImageView) view.findViewById(R.id.pic3);

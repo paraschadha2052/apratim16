@@ -141,6 +141,18 @@ public class MainHome extends AppCompatActivity {
                         fragment = new Map();
                         toolbar.setBackgroundColor(getResources().getColor(R.color.dark_theme));
                         break;
+                    case R.id.nav_eight_fragment:
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                        }
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                        }
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.home4));
+                        }
+                        fragment = new Gallery();
+                        break;
                     case R.id.nav_tenth_fragment:
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
