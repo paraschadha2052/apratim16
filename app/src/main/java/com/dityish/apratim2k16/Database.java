@@ -103,32 +103,6 @@ public class Database extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void addResult(String id, String name, Date updatedAt, String result) {
-
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_ID, id);
-        values.put(COLUMN_NAME, name);
-        values.put(COLUMN_UPDATEDAT, getmillis(updatedAt) - 19800000l);
-        values.put(COLUMN_RESULT, result);
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.insert(TABLE_RESULTS, null, values);
-        db.close();
-    }
-
-    public void addSponsor(String id, String heading, int pr, String url) {
-
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_ID, id);
-        values.put(COLUMN_HEADING, heading);
-        values.put(COLUMN_PR, pr);
-        values.put(COLUMN_URL, url);
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.insert(TABLE_SPONSORS, null, values);
-        db.close();
-    }
-
     public void updateEvent(String id, String name, String location, Date start, Date end, String description, boolean isAllDay, int isProfShow) {
 
         ContentValues values = new ContentValues();
@@ -146,31 +120,6 @@ public class Database extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void updateResult(String id, String name, Date updatedAt, String result) {
-
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_ID, id);
-        values.put(COLUMN_NAME, name);
-        values.put(COLUMN_UPDATEDAT, getmillis(updatedAt) - 19800000l);
-        values.put(COLUMN_RESULT, result);
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.update(TABLE_RESULTS, values, COLUMN_ID + "=?", new String[]{id});
-        db.close();
-    }
-
-    public void updateSponsor(String id, String heading, int pr, String url) {
-
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_ID, id);
-        values.put(COLUMN_HEADING, heading);
-        values.put(COLUMN_PR, pr);
-        values.put(COLUMN_URL, url);
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.update(TABLE_SPONSORS, values, COLUMN_ID + "=?", new String[]{id});
-        db.close();
-    }
 
     public void addEvent(EventModel event) {
         if (checkIfExists(TABLE_EVENTS, event.getID())) {
@@ -180,21 +129,7 @@ public class Database extends SQLiteOpenHelper {
         }
     }
 
-    public void addResult(ResultModel result) {
-        if (checkIfExists(TABLE_RESULTS, result.getID())) {
-            updateResult(result.getID(), result.getName(), result.getUpdatedAt(), result.getResult());
-        } else {
-            addResult(result.getID(), result.getName(), result.getUpdatedAt(), result.getResult());
-        }
-    }
 
-    public void addSponsor(SponsorsModel sponsor) {
-        if (checkIfExists(TABLE_SPONSORS, sponsor.getID())) {
-            updateSponsor(sponsor.getID(), sponsor.getHeading(), sponsor.getPR(), sponsor.getURL());
-        } else {
-            addSponsor(sponsor.getID(), sponsor.getHeading(), sponsor.getPR(), sponsor.getURL());
-        }
-    }
 
     public boolean checkIfExists(String table_name, String id) {
 
@@ -313,35 +248,7 @@ public class Database extends SQLiteOpenHelper {
         return eventsNowList;
     }
 
-    //Returns Results Arraylist in sorted form
 
-    public ArrayList<ResultModel> getResultList() {
-
-        ArrayList<ResultModel> resultList = new ArrayList<ResultModel>();
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        String query = "SELECT * FROM " + TABLE_RESULTS;
-
-        Cursor cursor = db.rawQuery(query, null);
-
-        if (cursor.moveToFirst()) {
-            do {
-                ResultModel result = new ResultModel();
-                result.setID(cursor.getString(cursor.getColumnIndex(COLUMN_ID)));
-                result.setName(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)));
-                result.setUpdatedAt(new Date(cursor.getLong(cursor.getColumnIndex(COLUMN_UPDATEDAT))));
-                result.setResult(cursor.getString(cursor.getColumnIndex(COLUMN_RESULT)));
-
-                resultList.add(result);
-            } while (cursor.moveToNext());
-        }
-
-        Collections.sort(resultList);
-
-        db.close();
-        return resultList;
-
-    }
 
     //Get Prof Shows
     public ArrayList<EventModel> getProfShows() {
@@ -375,34 +282,5 @@ public class Database extends SQLiteOpenHelper {
         db.close();
         Collections.sort(profShows);
         return profShows;
-    }
-
-    // Get Sponsors Images Links
-
-    public ArrayList<SponsorsModel> getSponsors() {
-
-        ArrayList<SponsorsModel> sponsorList = new ArrayList<SponsorsModel>();
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        String query = "SELECT * FROM " + TABLE_SPONSORS;
-
-        Cursor cursor = db.rawQuery(query, null);
-
-        if (cursor.moveToFirst()) {
-            do {
-                SponsorsModel sponsor = new SponsorsModel();
-                sponsor.setID(cursor.getString(cursor.getColumnIndex(COLUMN_ID)));
-                sponsor.setHeading(cursor.getString(cursor.getColumnIndex(COLUMN_HEADING)));
-                sponsor.setPR(cursor.getInt(cursor.getColumnIndex(COLUMN_PR)));
-                sponsor.setURL(cursor.getString(cursor.getColumnIndex(COLUMN_URL)));
-
-                sponsorList.add(sponsor);
-            } while (cursor.moveToNext());
-        }
-
-        Collections.sort(sponsorList);
-
-        db.close();
-        return sponsorList;
     }
 }

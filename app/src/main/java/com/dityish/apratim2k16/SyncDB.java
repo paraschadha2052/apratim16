@@ -17,23 +17,13 @@ import java.util.Date;
 import java.util.List;
 
 
-public class SyncDB {
+public class SyncDB implements SHARED_CONSTANTS {
 
-    public static void refreshEvent(Context context) {
+    public static void refreshEvent(Context context)  {
 
         final Database db = new Database(context);
 
-        String jsonEvents = "{Events:[\n" +
-                "  {\n" +
-                "    id:1,\n" +
-                "    eventName:\"Hackathon\",\n" +
-                "    location:\"CCET\",\n" +
-                "    start:\"2015-10-29T11:23\",\n" +
-                "    end:\"2015-10-29T12:23\",\n" +
-                "    desc:\"HEre goes the Description\",\n" +
-                "    isProfShow:FALSE\n" +
-                "  }\n" +
-                "  ]}";
+
         try {
             JSONObject jsonRootObject = new JSONObject(jsonEvents);
 
@@ -69,64 +59,5 @@ public class SyncDB {
 
 
     }
-
-    public static void refreshResult(Context context) {
-
-        final Database db = new Database(context);
-
-
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Results");
-
-        query.setLimit(300);
-        query.findInBackground(new FindCallback<ParseObject>() {
-
-            @SuppressWarnings("unchecked")
-            @Override
-            public void done(List<ParseObject> resultList, ParseException e) {
-
-                if (e == null) {
-                    for (ParseObject parseResult : resultList) {
-
-                        ResultModel result = new ResultModel(parseResult.getObjectId(), parseResult.getString("eventName"),
-                                parseResult.getUpdatedAt(), parseResult.getString("result"));
-
-                        db.addResult(result);
-                    }
-
-                }
-            }
-        });
-    }
-
-    public static void refreshSponsors(Context context) {
-
-        final Database db = new Database(context);
-
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Sponsors");
-
-        query.findInBackground(new FindCallback<ParseObject>() {
-
-            @SuppressWarnings("unchecked")
-            @Override
-            public void done(List<ParseObject> sponsorsList, ParseException e) {
-
-                if (e == null) {
-                    for (ParseObject parseResult : sponsorsList) {
-
-                        SponsorsModel sponsor = new SponsorsModel(parseResult.getObjectId(), parseResult.getString("heading"),
-                                parseResult.getNumber("PR").intValue(), parseResult.getString("URL"));
-
-                        Log.d("URL",parseResult.getString("URL"));
-                        db.addSponsor(sponsor);
-                    }
-
-                }
-            }
-        });
-    }
-
-
-
-
 
 }

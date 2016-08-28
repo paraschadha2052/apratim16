@@ -178,7 +178,6 @@ public class MainHome extends AppCompatActivity {
                             @Override
                             public void run() {
                                 SyncDB.refreshEvent(getApplicationContext());
-                                SyncDB.refreshResult(getApplicationContext());
                             }
                         });
                         sync.start();

@@ -69,7 +69,6 @@ public class ProfShow extends android.support.v4.app.Fragment implements SHARED_
 
             @Override
             protected void onPostExecute(String s) {
-                Log.d("Neo", "Neo");
                 DateFormat df2 = new SimpleDateFormat("hh:mm a");
                 DateFormat df = new SimpleDateFormat("dd MMM");
                 name=new String[profShows.size()];
@@ -93,7 +92,7 @@ public class ProfShow extends android.support.v4.app.Fragment implements SHARED_
                 }
 
                 if (profShows.size() == 0) {
-                   Log.d("Neo","ProfShows not received");
+                   Log.d("dityish says","ProfShows not received");
 
                 } else {
                     ListAdapter custom = new ProfAdapter(getActivity(),name,drw);

@@ -16,4 +16,16 @@ public interface SHARED_CONSTANTS {
             R.drawable.n2o_prof};
 
     int [] PROF_PICS={R.drawable.vishwa,R.drawable.mtv,R.drawable.papon,R.drawable.sunburn,R.drawable.n2o};
+
+    String jsonEvents = "{Events:[\n" +
+            "  {\n" +
+            "    id:1,\n" +
+            "    eventName:\"Hackathon\",\n" +
+            "    location:\"CCET\",\n" +
+            "    start:\"2015-10-29T11:23\",\n" +
+            "    end:\"2015-10-29T12:23\",\n" +
+            "    desc:\"HEre goes the Description\",\n" +
+            "    isProfShow:FALSE\n" +
+            "  }\n" +
+            "  ]}";
 }
