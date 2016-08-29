@@ -25,6 +25,12 @@ public class Sponsors extends android.support.v4.app.Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_sponsors, container, false);
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        int height = displaymetrics.heightPixels;
+        int width = displaymetrics.widthPixels;
+        jerryAnimation anim = new jerryAnimation(view,height,width);
+        anim.con_anime().start();
         loading=(ProgressBar) view.findViewById(R.id.loading);
         loading.setMax(100);
 
@@ -50,12 +56,6 @@ public class Sponsors extends android.support.v4.app.Fragment {
 
         web.loadUrl("https://file-md-ms.herokuapp.com/apratim_sponsers");
 
-        DisplayMetrics displaymetrics = new DisplayMetrics();
-        getActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-        int height = displaymetrics.heightPixels;
-        int width = displaymetrics.widthPixels;
-        jerryAnimation anim = new jerryAnimation(view,height,width);
-        anim.con_anime().start();
 
         return view;
     }
