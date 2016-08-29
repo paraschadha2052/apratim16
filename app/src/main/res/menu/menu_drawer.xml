@@ -13,7 +13,7 @@
         <item
             android:id="@+id/nav_third_fragment"
             android:icon="@drawable/prof_show"
-            android:title="Shows" />
+            android:title="Mega Events" />
 
         <item
             android:id="@+id/nav_fifth_fragment"
@@ -29,6 +29,10 @@
             android:id="@+id/nav_twelfth_fragment"
             android:icon="@drawable/sponsors"
             android:title="Sponsors" />
+        <item
+            android:id="@+id/nav_eight_fragment"
+            android:icon="@drawable/pic_day"
+            android:title="Gallery" />
         <item
             android:id="@+id/nav_tenth_fragment"
             android:icon="@drawable/contact_us"

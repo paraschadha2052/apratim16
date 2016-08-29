@@ -17,9 +17,9 @@ package="com.dityish.apratim2k16">
 <uses-permission android:name="com.dityish.apratim2k16.permission.C2D_MESSAGE" />
 
 <application
-    android:name=".Oasis2015"
+    android:name=".apratim2k16"
     android:allowBackup="true"
-    android:icon="@drawable/appicon"
+    android:icon="@drawable/ic_launcher_splash"
     android:label="Apratim 2016"
     android:largeHeap="true"
     android:theme="@style/CustomActionBarTheme">
@@ -87,16 +87,7 @@ package="com.dityish.apratim2k16">
         </intent-filter>
     </receiver>
 
-    <activity
-        android:name=".ResultDetails"
-        android:label="Results "
-        android:screenOrientation="portrait"
-        android:theme="@style/AppTheme"
-        android:parentActivityName=".MainHome">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.dityish.apratim2k16.MainHome" />
-    </activity>
+
     <activity
         android:name=".EventDetails"
         android:label="@string/title_activity_event_details"

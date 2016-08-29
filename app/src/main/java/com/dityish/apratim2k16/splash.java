@@ -31,7 +31,6 @@ public class splash extends AppCompatActivity {
                     @Override
                     public void run() {
                         SyncDB.refreshEvent(getApplicationContext());
-                        SyncDB.refreshResult(getApplicationContext());
                     }
 
                 });
@@ -58,7 +57,7 @@ public class splash extends AppCompatActivity {
 
                 startActivity(i);
             }
-        }, 1);
+        }, 8000);
 
     }
 

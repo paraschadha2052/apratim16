@@ -48,7 +48,7 @@ public class Sponsors extends android.support.v4.app.Fragment {
             return view;
         }
 
-        web.loadUrl("http://bits-oasis.org/sponsors/");
+        web.loadUrl("https://file-md-ms.herokuapp.com/apratim_sponsers");
 
         DisplayMetrics displaymetrics = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
