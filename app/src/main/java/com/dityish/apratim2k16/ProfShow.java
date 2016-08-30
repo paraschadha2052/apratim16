@@ -47,7 +47,7 @@ public class ProfShow extends android.support.v4.app.Fragment implements SHARED_
                 profDetails(position);
             }
         });
-
+/*
         drw=new Bitmap[PROF_PROFILE_PIC.length];
 
         db=new Database(getActivity());
@@ -64,6 +64,7 @@ public class ProfShow extends android.support.v4.app.Fragment implements SHARED_
                     pics=getRoundedShape(pics);
                     drw[i]=pics;
                 }
+
                 return msg;
             }
 
@@ -100,7 +101,7 @@ public class ProfShow extends android.support.v4.app.Fragment implements SHARED_
                 }
             }
         }.execute(null, null, null);
-
+*/
         DisplayMetrics displaymetrics = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
         int height = displaymetrics.heightPixels;
