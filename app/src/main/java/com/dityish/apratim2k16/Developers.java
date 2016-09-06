@@ -17,7 +17,7 @@ import android.widget.ListView;
 
 
 public class Developers extends android.support.v4.app.Fragment {
-    Bitmap[] drw=new Bitmap[9];
+
     String[] DEVELOPER_NAMES={"Paras Chadha","Rishabh Malhotra","Akanksha Kumari","Aditya Bansal"};
     int [] DEVELOPER_PICS={R.drawable.profile,R.drawable.profile,R.drawable.profile,R.drawable.profile};
     String[] DEVELOPER_CONTRI={"UI/UX & Back-end Developer","Graphic Designer","Back-end Developer","UX Developer"};
@@ -29,6 +29,7 @@ public class Developers extends android.support.v4.app.Fragment {
         View view=inflater.inflate(R.layout.fragment_developers, container, false);
 
         ListView developerList=(ListView) view.findViewById(R.id.developerList);
+        Bitmap[] drw=new Bitmap[9];
         for(int i=0;i<DEVELOPER_NAMES.length;i++)
         {
             Bitmap pics= BitmapFactory.decodeResource(getResources(), DEVELOPER_PICS[i]);
@@ -44,7 +45,6 @@ public class Developers extends android.support.v4.app.Fragment {
         int width = displaymetrics.widthPixels;
         jerryAnimation anim = new jerryAnimation(view,height,width);
         anim.con_anime().start();
-
         return view;
     }
 
